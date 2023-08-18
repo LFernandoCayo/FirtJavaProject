@@ -1,4 +1,7 @@
 package principal;
+
+import java.util.Scanner;
+
 /**
  * @author lfc
  * @version 1.0
@@ -14,24 +17,24 @@ public class Main {
 	 */
 	public static void main(String[] args) {
 		
-		// primera de código del bootcamp
-		System.out.println("Hola Mundo JAVA");
-		
-		//variables de entrada
-		int primerNumero = 5;
-		int segundoNumero = 6;
-		
-		//procesos
-		//Se  requiere la suma de los numeros
-		int resultadoSuma = primerNumero + segundoNumero;
-		
-		System.out.println("El resultado de la suma es:  " + resultadoSuma);
-		
-		final double PI = 3.14;
-		
-		System.out.println("el valor de PI es:  "+ PI);
-		
-		
+		Scanner scanner = new Scanner(System.in);
+				
+		System.out.println("Ingrese el nombre del Producto: ");
+		String nombreProducto = scanner.next();
+		System.out.println("Ingrese el precio del producto sin iva: ");
+		double precioProducto = scanner.nextDouble();
+		System.out.println("¿Posee descuento del 10%?");
+		boolean poseeDescuento = scanner.nextBoolean();
+		double precioConIva = precioProducto * 1.21;
+		System.out.println("El precio de venta (con IVA) es " + precioConIva);	
+		double precioFinal;
+		if(poseeDescuento == true) {
+			precioFinal = precioConIva * 0.9;
+		}else {
+			precioFinal = precioConIva * 1.05;
+		}
+		System.out.println("El precio con descuento es " + precioFinal);	
 	}
+	
 
 }
